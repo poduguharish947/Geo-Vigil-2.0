@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login / Register</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Welcome to Course Portal</h1>
+
+    <!-- Role Selection Section -->
+    <div id="role-selection" class="form-section">
+      <h2>Select Your Role</h2>
+      <p style="margin-bottom: 30px; color: #666;">Please choose how you want to access the portal</p>
+      <div style="display: flex; gap: 20px; flex-wrap: wrap; justify-content: center;">
+        <button onclick="selectRole('Student')" style="flex: 1; min-width: 200px; padding: 40px 20px; font-size: 18px; display: flex; flex-direction: column; align-items: center; gap: 15px;">
+          <span style="font-size: 48px;">🎓</span>
+          <span>Student</span>
+          <span style="font-size: 13px; font-weight: 400; opacity: 0.8;">Enroll & Learn</span>
+        </button>
+        <button onclick="selectRole('Teacher')" style="flex: 1; min-width: 200px; padding: 40px 20px; font-size: 18px; display: flex; flex-direction: column; align-items: center; gap: 15px;">
+          <span style="font-size: 48px;">👨‍🏫</span>
+          <span>Faculty</span>
+          <span style="font-size: 13px; font-weight: 400; opacity: 0.8;">Teach & Manage</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Register Section -->
+    <div id="register-section" class="form-section hidden">
+      <h2>Register as <span id="registerRoleText"></span></h2>
+      <input type="text" id="regName" placeholder="Name" required>
+      <input type="email" id="regEmail" placeholder="Email" required>
+      <input type="password" id="regPassword" placeholder="Password" required>
+      <input type="hidden" id="regRole" value="Student">
+      <button onclick="registerUser()">Register</button>
+      <p>Already have an account? <a href="#" onclick="toggleForm('login')">Login here</a></p>
+      <p><a href="#" onclick="backToRoleSelection()">← Back to role selection</a></p>
+    </div>
+
+    <!-- Login Section -->
+    <div id="login-section" class="form-section hidden">
+      <h2>Login as <span id="loginRoleText"></span></h2>
+      <input type="email" id="loginEmail" placeholder="Email" required>
+      <input type="password" id="loginPassword" placeholder="Password" required>
+      <input type="hidden" id="loginRole" value="Student">
+      <button onclick="loginUser()">Login</button>
+      <p>Don't have an account? <a href="#" onclick="toggleForm('register')">Register here</a></p>
+      <p><a href="#" onclick="backToRoleSelection()">← Back to role selection</a></p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
